@@ -1,7 +1,4 @@
-// for babel
-require("@babel/core").transform("code", {
-    presets: ["@babel/preset-env"],
-});
+
 
 // importing other packages
 require("dotenv").config();
@@ -9,8 +6,19 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import ConnectDB from './database/connection'
+import passport from "passport";
 
-// API
+// google authentication config
+import googleAuthConfig from "./config/google.config";
+
+
+
+
+// passport config
+googleAuthConfig(passport);
+
+
+// API'S Files
 
 import Auth from './API/Auth';
 
@@ -18,6 +26,8 @@ const zomato = express();
 zomato.use(cors());
 zomato.use(express.json());
 zomato.use(helmet());
+zomato.use(passport.initialize());
+
 
 
 // Application Routes

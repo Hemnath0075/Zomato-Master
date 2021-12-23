@@ -1,7 +1,6 @@
 // importing library
 import express from 'express';
-// import bcrypt from 'bcryptjs';
-// import jwt from 'jsonwebtoken';
+import passport from 'passport';
 
 // importing models 
 import {UserModel} from '../../database/allmodels';
@@ -47,6 +46,31 @@ const Router=express.Router();
     }
   });
  
+
+  Router.get(
+    "/google",
+    passport.authenticate("google", {
+      scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email",
+      ],
+    })
+  );
+  
+  /**
+   * Router       /google/callback
+   * Des          Google signin callback
+   * Params       none
+   * Access       Public
+   * Method       GET
+   */
+  Router.get(
+    "/google/callback",
+    passport.authenticate("google", { failureRedirect: "/" }),
+    (req,res)=>{
+      return res.status(200).json({token: req.session.passport.token,status: "success"});
+    }
+  );
 
 export default Router;
 
