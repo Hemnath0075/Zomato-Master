@@ -24,6 +24,7 @@ import Auth from './API/Auth';
 import Food from './API/Food';
 import Restaurant from './API/Restaurant';
 import Menu from './API/Menu'
+import Image from './API/Image'
 
 
 
@@ -41,6 +42,7 @@ zomato.use("/auth", Auth);
 zomato.use("/restaurant",Restaurant);
 zomato.use("/food",Food);
 zomato.use("/menu",Menu);
+zomato.use("/image",Image);
 
 
 
