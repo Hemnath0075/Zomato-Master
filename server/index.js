@@ -21,6 +21,11 @@ googleAuthConfig(passport);
 // API'S Files
 
 import Auth from './API/Auth';
+import Food from './API/Food';
+import Restaurant from './API/Restaurant';
+import Menu from './API/Menu'
+
+
 
 const zomato = express();
 zomato.use(cors());
@@ -33,6 +38,9 @@ zomato.use(passport.initialize());
 // Application Routes
 // localhost:4000/auth/signup
 zomato.use("/auth", Auth);
+zomato.use("/restaurant",Restaurant);
+zomato.use("/food",Food);
+zomato.use("/menu",Menu);
 
 
 

@@ -3,6 +3,7 @@
 import googleOAuth from "passport-google-oauth20";
 import { UserModel } from "../database/allmodels";
 
+
 const GoogleStrategy = googleOAuth.Strategy;
 
 export default (passport) => {
