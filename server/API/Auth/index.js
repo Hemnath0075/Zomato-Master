@@ -5,6 +5,11 @@ import passport from 'passport';
 // importing models 
 import {UserModel} from '../../database/allmodels';
 
+// imporing validate schema
+
+
+import { validateSignin, validateSignup} from '../../validation/auth';
+
 // creating Router
 const Router=express.Router();
 
@@ -18,7 +23,7 @@ const Router=express.Router();
  */
  Router.post("/signup", async (req, res) => {
     try {
-    //   await ValidateSignup(req.body.credentials);
+      await validateSignup(req.body.credentials);
       await UserModel.findByEmailAndPhone(req.body.credentials);
       const newUser = await UserModel.create(req.body.credentials);
       const token = newUser.generateJwtToken();
@@ -37,10 +42,10 @@ const Router=express.Router();
    */
   Router.post("/signin", async (req, res) => {
     try {
-    //   await ValidateSignin(req.body.credentials);
+      await validateSignin(req.body.credentials);
       const user = await UserModel.findByEmailAndPassword(req.body.credentials);
       const token = user.generateJwtToken();
-      return res.status(200).json({ token, status: "success" });
+      return res.status(200).json({ token: token, status: "success" });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }

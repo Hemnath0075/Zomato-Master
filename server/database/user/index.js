@@ -5,8 +5,9 @@ import jwt from 'jsonwebtoken';
 
 const UserSchema = new mongoose.Schema(
   {
-    fullname: { type: String, required: true },
-    email: { type: String, required: true },
+    fullname: { type: String ,required: true },
+    email: { type: String,
+      required: true },
     password: { type: String },
     phoneNumber: { type: Number },
   },
@@ -17,7 +18,7 @@ const UserSchema = new mongoose.Schema(
 
 
 UserSchema.methods.generateJwtToken = function () {
-  return jwt.sign({ user: this._id.toString() }, "ZomatoAPP");
+  return jwt.sign({ user: this._id.toString() }, "Zomatoapp");
 };
 
 UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
@@ -44,6 +45,7 @@ UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
 
   return user;
 };
+
 
 UserSchema.pre("save", function (next) {
   const user = this;

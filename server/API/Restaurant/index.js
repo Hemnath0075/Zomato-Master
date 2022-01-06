@@ -2,7 +2,7 @@
 import express from 'express';
 
 // database model
-import {Restaurants} from '../../database/allmodels';
+import {RestaurantModel} from '../../database/allmodels';
 
 // intializing The Router
 const Router = express.Router();
@@ -43,13 +43,15 @@ Router.get('/:_id', async(req,res)=>{
     try{
         const {_id}=req.params;
         const restaurant=await RestaurantModel.findById({_id});
-        if(!restaurant) return res.json({error: "There is no Restaurant on this id"});
+        if(!restaurant) 
+        return res.json({error: "There is no Restaurant on this id"});
 
         return res.json({restaurant});
     }catch(error){
         return res.status(500).json({error: error.message});
     }
 })
+
 
 
 /**

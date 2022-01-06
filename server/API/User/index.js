@@ -43,13 +43,13 @@ Router.put("/update/:userid",async(req,res)=>{
         const {userdata}=req.body;
         const updatedData=await UserModel.findByIdAndUpdate(userid,
             {
-                $set=userdata,
+                $set:userdata,
             },
             {
                 new: true,
             }
             )
-        return res.json({user: "updated user details"})
+        return res.json({user: "updated user details", details: updatedData})
     }catch(error){
         return res.status(500).json({error: error.message});
     }

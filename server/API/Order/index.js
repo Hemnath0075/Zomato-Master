@@ -1,8 +1,11 @@
 // importing libraries
-import express, { Router } from 'express';
+import express  from 'express';
+import passport from 'passport';
 
 // import database model
 import {OrderModel} from '../../database/allmodels';
+
+import validateUser from "../../config/validateUser";
 
 // intialize the Router
 const Router=express.Router();
@@ -15,8 +18,9 @@ const Router=express.Router();
    * Method       get
 */
 
-Router.get("/:id",async(req,res)=>{
+Router.get("/:id",passport.authenticate("jwt") ,async(req,res)=>{
     try{
+        await validateUser(req, res);
         const {_id} = req.params;
         const getOrders=await OrderModel.findOne({user: _id});
         if(!getOrders){
@@ -37,7 +41,7 @@ Router.get("/:id",async(req,res)=>{
  * Method       POST or PUT
  */
 
-Router.post("/new/:_id",async(req,res)=>{
+Router.post("/new/:_id",passport.authenticate("jwt"),async(req,res)=>{
     try{
         const {_id}=req.params;
         const {orderDetails}=req.body;
@@ -52,6 +56,7 @@ Router.post("/new/:_id",async(req,res)=>{
         return res.status(500).json({error: error.message});
     }
 })
+
 
 
 export default Router;
