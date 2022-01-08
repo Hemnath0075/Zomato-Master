@@ -1,10 +1,20 @@
-
 import './App.css';
 
+
+// importing layouts
+import HomeLayoutHOC from "./HOC/Homepage.hoc"
+  
+
+// importing pages
+import HomePage from "./Pages/HomePage";
+
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">
-  Hello world!
-</h1>
+  return (
+    <>
+      <HomeLayoutHOC component={HomePage} path="/"/>
+    </>
+  )
 }
 
 export default App;
