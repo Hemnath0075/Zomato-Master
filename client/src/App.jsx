@@ -1,4 +1,6 @@
 import './App.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 // importing layouts
@@ -13,6 +15,7 @@ function App() {
   return (
     <>
       <HomeLayoutHOC component={HomePage} path="/"/>
+      <HomeLayoutHOC component={HomePage} path="/:type"/>
     </>
   )
 }

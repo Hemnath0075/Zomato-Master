@@ -3,6 +3,7 @@ import {FaUserAlt} from 'react-icons/fa';
 import {HiLocationMarker} from 'react-icons/hi'
 import {IoMdArrowDropdown} from 'react-icons/io'
 import {RiSearch2Line} from 'react-icons/ri';
+import {Link} from 'react-router-dom';
 
 function MobileNav(){
     const [isDropDownOpen,setIsDropDownOpen]=useState(false);
@@ -10,7 +11,7 @@ function MobileNav(){
     return (
         <div className='flex w-full items-center justify-between lg:hidden'>
             <div className='w-28'>
-                <img src='https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png' alt='' className='w-full h-full'/>
+                <Link to='/'><img src='https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png' alt='' className='w-full h-full'/></Link>
             </div>
             <div className='flex items-center gap-3 relative'>
                 <button className='bg-zomatotheme-400 text white py-2 px-3 rounded-full'>Use App</button>
@@ -56,10 +57,10 @@ function DesktopNav(){
       <div className="hidden lg:inline container px-20 mx-auto">
         <div className="gap-4 w-full items-center justify-around flex">
           <div className="w-20">
-            <img
+          <Link to='/'><img
               src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
               alt=""
-            />
+            /></Link>
           </div>
           <div className="w-3/4 bg-white shadow-md p-3 flex items-center gap-3 border border-gray-200 rounded ">
             <div className="flex items-center gap-2 border-r-2 border-gray-300 pr-2">
