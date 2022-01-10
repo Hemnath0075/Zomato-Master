@@ -5,10 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 // importing layouts
 import HomeLayoutHOC from "./HOC/Homepage.hoc"
+import RestaurantLayoutHoc from './HOC/Restaurant.hoc';
   
 
 // importing pages
 import HomePage from "./Pages/HomePage";
+// import RestaurantPage from './Pages/RestaurantPage';
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
     <>
       <HomeLayoutHOC component={HomePage} path="/"/>
       <HomeLayoutHOC component={HomePage} path="/:type"/>
+      <RestaurantLayoutHoc component={HomePage} path="/restaurant/:id"/>
     </>
   )
 }

@@ -8,7 +8,7 @@ import React from 'react'
 
 function Mobilefooter(){
     return (
-    <div className='container sm:inline md:hidden lg:hidden'>
+    <div className='container mt-2 sm:inline md:hidden lg:hidden'>
     <div className='flex flex-row border-2 border-black '>
         <div className='basis-1/2 flex flex-col items-center'>
             <li>row1</li>
@@ -23,7 +23,7 @@ function Mobilefooter(){
 
 function Desktopfooter(){
     return (
-        <div className='container sm:hidden md:hidden lg:block'>
+        <div className='container mt-8 mx-auto sm:hidden md:hidden lg:block'>
     <div className=' flex flex-row border-2 border-black '>
     <div className='basis-1/2 flex flex-col items-center'>
         <li>row1</li>
