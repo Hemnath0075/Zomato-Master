@@ -1,13 +1,17 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
+import { TiStarOutline } from "react-icons/ti";
+import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
+import { BiBookmarkPlus } from "react-icons/bi";
 
 // components
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
 import ImageGrid from "../Components/Restaurant/imageGrid";
+import InfoButton from "../Components/Restaurant/infoButton";
 import RestaurantInfo from "../Components/Restaurant/Restaurantinfo";
+import Tabs from "../Components/Restaurant/Tabs";
 
-function RestaurantLayout() {
-  const [restaurant] = useState({
+function RestaurantLayout({ children }) {
+  const [restaurant, setRestaurant] = useState({
     images: [
       "https://b.zmtcdn.com/data/pictures/chains/3/307893/ac9e6b3236967e1e255e14e24cc0c9e7.jpg",
       "https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg",
@@ -22,13 +26,12 @@ function RestaurantLayout() {
     deliveryRating: 3.2,
   });
 
-//   const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
 
   return (
     <>
-      <div className="container mx-auto px-4 mt-8 lg:px-20 pb-10">
       <Navbar />
-          
+      <div className="container mx-auto px-4 mt-8 lg:px-20 pb-10">
         <ImageGrid images={restaurant.images} />
         <RestaurantInfo
           name={restaurant?.name}
@@ -37,7 +40,24 @@ function RestaurantLayout() {
           cuisine={restaurant?.cuisine}
           address={restaurant?.address}
         />
-        <Footer />
+        <div className="my-4 flex flex-wrap gap-3 mx-auto">
+          <InfoButton isActive={true} >
+            <TiStarOutline /> Add Review
+          </InfoButton>
+          <InfoButton>
+            <RiDirectionLine /> Direction
+          </InfoButton>
+          <InfoButton>
+            <BiBookmarkPlus /> Bookmark
+          </InfoButton>
+          <InfoButton>
+            <RiShareForwardLine /> Share
+          </InfoButton>
+        </div>
+        <div className="my-10">
+          <Tabs />
+        </div>
+        {children}
       </div>
     </>
   );
