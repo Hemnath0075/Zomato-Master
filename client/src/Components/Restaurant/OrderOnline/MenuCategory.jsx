@@ -6,7 +6,7 @@ function MenuCategory(props) {
     <>
       <div
         className={classnames("py-2 px-1", {
-          "text-zomato-400 bg-zomato-50 border-r-4 border-zomato-400":
+          "text-red-400 bg-red-50 border-r-4 border-red-400":
             props.isActive,
         })}
       >

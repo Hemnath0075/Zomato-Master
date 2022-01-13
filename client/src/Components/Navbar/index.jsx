@@ -14,7 +14,7 @@ function MobileNav(){
                 <Link to='/'><img src='https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png' alt='' className='w-full h-full'/></Link>
             </div>
             <div className='flex items-center gap-3 relative'>
-                <button className='bg-zomatotheme-400 text white py-2 px-3 rounded-full'>Use App</button>
+                <button className='bg-red-400 text white py-2 px-3 rounded-full'>Use App</button>
                 {user?.fullname ?(
                     <>
                     <div onClick={()=>setIsDropDownOpen((prev => !prev))} className='border p-2 border-gray-300 text-zomato-400 w-20 h-20 rounded-full'>
@@ -31,7 +31,7 @@ function MobileNav(){
             <>
                 <span
                 onClick={() => setIsDropDownOpen((prev) => !prev)}
-                className="border p-2 border-gray-300 text-zomato-400 rounded-full">
+                className="border p-2 border-gray-300 text-red-400 rounded-full">
                 <FaUserAlt className="w-full h-full" />
                 </span>
                 {isDropDownOpen && (
@@ -87,7 +87,7 @@ function DesktopNav(){
             <div className="relative w-20">
               <div
                 onClick={() => setIsDropDownOpen((prev) => !prev)}
-                className="border border-gray-300 text-zomato-400 w-full h-20 rounded-full"
+                className="border border-gray-300 text-red-400 w-full h-20 rounded-full"
               >
                 <img
                   src="https://cdn1.vectorstock.com/i/1000x1000/36/15/businessman-character-avatar-isolated-vector-12613615.jpg"
