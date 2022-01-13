@@ -13,6 +13,9 @@ import HomePage from "./Pages/HomePage";
 import RestaurantPage from './Pages/RestaurantPage';
 import Overview from "./Components/Restaurant/Overview";
 import OrderOnline from './Components/Restaurant/Orderonline'
+import Reviews from './Components/Restaurant/Reviews/Reviews';
+import Menu from './Components/Restaurant/Menu/menu';
+import Photos from './Components/Restaurant/Photos/Photos';
 
 
 function App() {
@@ -23,9 +26,9 @@ function App() {
       <RestaurantLayoutHoc component={RestaurantPage} path="/restaurant/:id"/>
       <RestaurantLayoutHoc component={Overview} path="/restaurant/:id/overview" />
       <RestaurantLayoutHoc component={OrderOnline} path="/restaurant/:id/order-online" />
-      <RestaurantLayoutHoc component={HomePage} path="/restaurant/:id/reviews" />
-      <RestaurantLayoutHoc component={HomePage} path="/restaurant/:id/menu" />
-      <RestaurantLayoutHoc component={HomePage} path="/restaurant/:id/photos" />
+      <RestaurantLayoutHoc component={Reviews} path="/restaurant/:id/reviews" />
+      <RestaurantLayoutHoc component={Menu} path="/restaurant/:id/menu" />
+      <RestaurantLayoutHoc component={Photos} path="/restaurant/:id/photos" />
 
     </>
   )
