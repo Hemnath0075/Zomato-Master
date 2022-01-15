@@ -46,6 +46,7 @@ function Signin({ isOpen, setIsOpen }) {
               className="inline-block h-screen align-middle"
               aria-hidden="true"
             >
+              {/* It's the Unicode Character 'ZERO WIDTH SPACE' (U+200B). */}
               &#8203;
             </span>
             <Transition.Child
