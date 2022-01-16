@@ -55,6 +55,28 @@ Router.get('/', upload.single("file"),async(req,res)=>{
 })
 
 
+
+
+/**
+   * Router       /
+   * Des          getting the images 
+   * Params       None
+   * Access       Public
+   * Method       get
+*/
+
+Router.get("/:_id", async (req, res) => {
+    try {
+      const { _id } = req.params;
+      const image = await ImageModel.findById(_id);
+  
+      return res.status(200).json(image);
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  });
+
+
  
 
 export default Router;

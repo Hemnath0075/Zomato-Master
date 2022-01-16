@@ -7,6 +7,25 @@ import { FoodModel } from '../../database/allmodels';
 // intializing the Router
 const Router = express.Router();
 
+/**
+ * Route        /:_id
+ * Des          GET food based on id
+ * Params       _id
+ * Access       Public
+ * Method       GET
+ */
+ Router.get("/:_id", async (req, res) => {
+    try {
+      const { _id } = req.params;
+      const foods = await FoodModel.findById(_id);
+      return res.json({ foods });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  });
+  
+
+
 
 /**
    * Router       /r/_id
