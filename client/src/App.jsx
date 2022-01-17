@@ -24,7 +24,7 @@ import OrderOnline from './Components/Restaurant/Orderonline'
 import Reviews from './Components/Restaurant/Reviews/Reviews';
 import Menu from './Components/Restaurant/Menu/menu';
 import Photos from './Components/Restaurant/Photos/Photos';
-
+import GoogleAuth from "./Pages/GoogleAuth";
 // redux
 import { useDispatch } from "react-redux";
 import { getMySelf } from "./redux/reducers/user/user.action";
@@ -41,6 +41,7 @@ function App() {
   return (
     <>
       <HomeLayoutHOC component={HomePage} path="/"/>
+      <HomeLayoutHOC component={GoogleAuth} path="/google/:token"  />
       <HomeLayoutHOC component={HomePage} path="/:type"/>
       <RestaurantLayoutHoc component={RestaurantPage} path="/restaurant/:id"/>
       <RestaurantLayoutHoc component={Overview} path="/restaurant/:id/overview" />

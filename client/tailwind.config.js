@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      color:{
+      colors:{
         zomato:{
           50: '#ffe5e7',
           100: '#fab5b9',
