@@ -13,6 +13,7 @@ import { getCart } from "../redux/reducers/cart/cart.action";
 
 // components
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer"
 import ImageGrid from "../Components/Restaurant/imageGrid";
 import InfoButton from "../Components/Restaurant/infoButton";
 import RestaurantInfo from "../Components/Restaurant/Restaurantinfo";
@@ -82,6 +83,7 @@ function RestaurantLayout({ children }) {
         {children}
       </div>
       <CartContainer />
+      <Footer/>
     </>
   );
 }

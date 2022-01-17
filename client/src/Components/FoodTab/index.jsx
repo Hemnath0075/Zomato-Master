@@ -65,6 +65,15 @@ function MobileTab(){
 
 function DesktopTab(){
     const [allTypes] = useState([
+      {
+        id: "",
+        imageDefault:
+          "https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png",
+        imageActive:
+          "https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png",
+        name: "Offers",
+        
+      },
         {
           id: "delivery",
           imageDefault:
@@ -72,7 +81,7 @@ function DesktopTab(){
           imageActive:
             "https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png",
           name: "Delivery",
-          activeColor: "yellow",
+          
         },
         {
           id: "dining",

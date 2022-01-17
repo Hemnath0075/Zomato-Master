@@ -4,8 +4,7 @@ import { BsShieldLockFill } from "react-icons/bs";
 //redux
 import { useSelector } from "react-redux";
 
-// razorpay
-// import Razorpay from "razorpay";
+
 
 
 // components
@@ -35,14 +34,14 @@ function CheckoutPage() {
 
   const payNow = () => {
     let options = {
-      key: "rzp_test_q1aD8S4CGOEb75",
+      key: "rzp_test_yBlnh7YIVErtxb",
       amount:
         reduxStateCart.reduce(
           (total, current) => total + current.totalPrice,
           0
         ) * 100,
       currency: "INR",
-      name: "Zomato Master",
+      name: "Zomato Company",
       description: "Fast Delivery Service",
       image:
       "https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png",

@@ -102,7 +102,9 @@ function DesktopNav({SignIn,SignUp}){
                 <img
                   src="https://cdn1.vectorstock.com/i/1000x1000/36/15/businessman-character-avatar-isolated-vector-12613615.jpg"
                   alt=""
-                  className="w-full h-full rounded-full object-cover"
+                  className="w-auto  h-auto rounded-full object-cover"
+                  width={"10px"} height={"10px"}
+                  
                 />
               </div>
               {isDropDownOpen && (
