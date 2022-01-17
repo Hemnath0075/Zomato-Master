@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       color:{
-        zomatotheme:{
+        zomato:{
           50: '#ffe5e7',
           100: '#fab5b9',
           200: '#f9848b',

@@ -1,6 +1,8 @@
 import './App.css';
+import React, {useEffect} from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
 
 
 // importing layouts
@@ -23,10 +25,19 @@ import Reviews from './Components/Restaurant/Reviews/Reviews';
 import Menu from './Components/Restaurant/Menu/menu';
 import Photos from './Components/Restaurant/Photos/Photos';
 
+// redux
+import { useDispatch } from "react-redux";
+import { getMySelf } from "./redux/reducers/user/user.action";
+
 
 
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMySelf());
+  }, [localStorage]);
   return (
     <>
       <HomeLayoutHOC component={HomePage} path="/"/>

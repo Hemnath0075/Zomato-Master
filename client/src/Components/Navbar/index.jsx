@@ -9,9 +9,14 @@ import {Link} from 'react-router-dom';
 import SignIn from '../Auth/Signin';
 import SignUp from '../Auth/Signup'
 
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../../redux/reducers/auth/auth.action";
+
 function MobileNav({SignIn,SignUp}){
     const [isDropDownOpen,setIsDropDownOpen]=useState(false);
-    const [user]=useState({});
+    const reduxState = useSelector((globalState) => globalState.user.user.user);
+    const dispatch = useDispatch();
     return (
         <div className='flex w-full items-center justify-between lg:hidden'>
             <div className='w-28'>
@@ -19,14 +24,14 @@ function MobileNav({SignIn,SignUp}){
             </div>
             <div className='flex items-center gap-3 relative'>
                 <button className='bg-red-400 text white py-2 px-3 rounded-full'>Use App</button>
-                {user?.fullname ?(
+                {reduxState?.fullname ?(
                     <>
                     <div onClick={()=>setIsDropDownOpen((prev => !prev))} className='border p-2 border-gray-300 text-zomato-400 w-20 h-20 rounded-full'>
                         <img src='https://cdn1.vectorstock.com/i/1000x1000/36/15/businessman-character-avatar-isolated-vector-12613615.jpg' alt='' className='w-full h-full rounded-full object-cover'/>
                     </div>
                     {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2">
-                <button >Sign Out</button>
+                <button onClick={() => dispatch(signOut())}>Sign Out</button>
               </div>
                 )}
                     </>
@@ -55,7 +60,8 @@ function MobileNav({SignIn,SignUp}){
 
 function DesktopNav({SignIn,SignUp}){
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-    const [user]=useState({});
+    const reduxState = useSelector((globalState) => globalState.user.user.user);
+    const dispatch = useDispatch();
     return (
         <>
       <div className="hidden lg:inline container px-20 mx-auto">
@@ -87,7 +93,7 @@ function DesktopNav({SignIn,SignUp}){
               />
             </div>
           </div>
-          {user?.fullName ? (
+          {reduxState?.fullname ? (
             <div className="relative w-20">
               <div
                 onClick={() => setIsDropDownOpen((prev) => !prev)}
@@ -101,7 +107,7 @@ function DesktopNav({SignIn,SignUp}){
               </div>
               {isDropDownOpen && (
                 <div className="absolute shadow-lg py-3 -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2">
-                  <button >Sign Out</button>
+                  <button onClick={() => dispatch(signOut())}>Sign Out</button>
                 </div>
               )}
             </div>

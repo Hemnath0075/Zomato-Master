@@ -2,11 +2,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
+import { useDispatch } from "react-redux";
+import { signIn } from "../../redux/reducers/auth/auth.action";
+
 function Signin({ isOpen, setIsOpen }) {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setUserData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -14,6 +18,12 @@ function Signin({ isOpen, setIsOpen }) {
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+  const submit = () => {
+    dispatch(signIn(userData));
+    setUserData({ email: "", password: "" });
+    closeModal();
   };
 
   const googleSignIn = () =>
@@ -80,7 +90,7 @@ function Signin({ isOpen, setIsOpen }) {
                         value={userData.email}
                         onChange={handleChange}
                         placeholder="user@email.com"
-                        className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
+                        className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-red-400"
                       />
                     </div>
                     <div className="w-full flex flex-col gap-2 mb-3">
@@ -91,12 +101,12 @@ function Signin({ isOpen, setIsOpen }) {
                         value={userData.password}
                         onChange={handleChange}
                         placeholder="**********"
-                        className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
+                        className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-red-400"
                       />
                     </div>
                     <div
-                      className="w-full text-center bg-zomato-400 text-white py-2 rounded-lg"
-                      onClick={closeModal}
+                      className="w-full text-center bg-red-400 text-white py-2 rounded-lg"
+                      onClick={submit}
                     >
                       Sign In
                     </div>

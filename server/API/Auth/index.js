@@ -23,7 +23,7 @@ const Router=express.Router();
  */
  Router.post("/signup", async (req, res) => {
     try {
-      await validateSignup(req.body.credentials);
+      // await validateSignup(req.body.credentials);
       await UserModel.findByEmailAndPhone(req.body.credentials);
       const newUser = await UserModel.create(req.body.credentials);
       const token = newUser.generateJwtToken();
