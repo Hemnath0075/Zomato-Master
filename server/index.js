@@ -63,7 +63,9 @@ privateRouteConfig(passport);
 
 // checking the connection and initializing the port
 
-zomato.listen(4000, ()=>{
+const PORT= process.env.PORT || 4000
+
+zomato.listen(PORT, ()=>{
     ConnectDB().then(()=>{
         console.log("server is running sucessfully");
     })
