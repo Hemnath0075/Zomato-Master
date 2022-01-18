@@ -3,18 +3,19 @@ import {Link,useParams} from 'react-router-dom';
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { IoFastFoodOutline, IoNutritionOutline } from "react-icons/io5";
 import { BiDrink } from "react-icons/bi";
+import { MdOutlineLocalOffer } from "react-icons/md";
 import classnames from 'classnames';
 
 // the useState is used storing some info
 // the Link is used for routing to other alternative to <a> tag but without refreshing page cool!
 
-// NOTE: ICON FOR MOBILE TAB
+
 function MobileTab(){
     const [allTypes] = useState([
 
       {
-        id: "",
-        icon: <RiShoppingBag3Line />,
+        id: "offer",
+        icon: <MdOutlineLocalOffer/>,
         name: "offer",
       },
         {
@@ -72,7 +73,7 @@ function MobileTab(){
 function DesktopTab(){
     const [allTypes] = useState([
       {
-        id: "",
+        id: "offer",
         imageDefault:
           "https://freepngimg.com/thumb/special_offer/3-2-special-offer-png-images-thumb.png",
         imageActive:

@@ -7,6 +7,7 @@ import { getRestaurant } from "../redux/reducers/restaurant/restaurant.action";
 
 
 // components
+import Offer from "../Components/Offers";
 import Delivery from '../Components/Delivery';
 import Dining from '../Components/Dining';
 import NightLife from '../Components/NightLife';
@@ -22,6 +23,7 @@ function HomePage() {
     }, []);
     return (
         <>
+            <div className=''>{type === 'offer' && <Offer/>}</div>
             <div className=''>{type === 'delivery' && <Delivery/>}</div>
             <div className=''>{type === 'dining' && <Dining/>}</div>
             <div className=''>{type === 'night' && <NightLife/>}</div>
