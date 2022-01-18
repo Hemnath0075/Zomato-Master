@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 
+import DeliveryCaurosel from "./deliveryCarousel";
+
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -35,7 +37,8 @@ export default class SimpleSlider extends Component {
       prevArrow: <SamplePrevArrow />
     };
     return (
-      <div>
+      <>
+      <div className="mb-10">
         <h1 className="text-xl my-4 md:my-8 md:text-3xl md:font-semibold">
         OFFERS FOR TODAY
       </h1>
@@ -63,6 +66,8 @@ export default class SimpleSlider extends Component {
          
         </Slider>
       </div>
+      <DeliveryCaurosel/>
+      </>
     );
   }
 }

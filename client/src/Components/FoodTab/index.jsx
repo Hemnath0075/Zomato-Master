@@ -8,9 +8,15 @@ import classnames from 'classnames';
 // the useState is used storing some info
 // the Link is used for routing to other alternative to <a> tag but without refreshing page cool!
 
-
+// NOTE: ICON FOR MOBILE TAB
 function MobileTab(){
     const [allTypes] = useState([
+
+      {
+        id: "",
+        icon: <RiShoppingBag3Line />,
+        name: "offer",
+      },
         {
           id: "delivery",
           icon: <RiShoppingBag3Line />,
@@ -68,9 +74,9 @@ function DesktopTab(){
       {
         id: "",
         imageDefault:
-          "https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png",
+          "https://freepngimg.com/thumb/special_offer/3-2-special-offer-png-images-thumb.png",
         imageActive:
-          "https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png",
+          "https://freepngimg.com/thumb/special_offer/3-2-special-offer-png-images-thumb.png",
         name: "Offers",
         
       },
